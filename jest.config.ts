@@ -4,13 +4,8 @@ const config: Config = {
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
     '!**/**.d.ts',
-    // "!**/*index.ts",
-    // "!src/helpers/**.*",
   ],
   testEnvironment: 'jsdom',
-  // testRegex: [
-  //   "^(?!.*\.(mock.spec)\.ts$).*\.spec.(ts|tsx)$"
-  // ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   transform: {
     '^.+\\.(ts|js|tsx|jsx)$': 'ts-jest',
@@ -18,9 +13,10 @@ const config: Config = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
-  // moduleNameMapper: {
-  //   "\\.(css|less|scss|sass)$": "identity-obj-proxy",
-  // },
+  resolver: 'jest-ts-webcompat-resolver',
+  globals: {
+    'import.meta.env': {} 
+  },
   coveragePathIgnorePatterns: [
     '/node_modules/',
     '/coverage',

@@ -1,8 +1,7 @@
+import { City, HourlyForecast } from '@/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import type { City, HourlyForecast } from '@/types';
-
-const API_KEY = '843ba30c7d708f3480e0e7dbb3e65878';
+const API_KEY = import.meta.env.VITE_OPEN_WEATHER_APP_ID || '';
 
 export const weatherApi = createApi({
   reducerPath: 'weatherApi',
